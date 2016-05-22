@@ -1,0 +1,114 @@
+//Algo Assignment 3
+//Name: NS Anum Tahir
+//Regn No: 8034
+//Class: DE-37-MTS-A
+//Topic: Unemployment
+
+#include <iostream>
+using namespace std;
+
+class Unemployment
+{
+	int numbr_of_people;
+	int literate_people = 1000;
+	int oppertunities;
+	int jobless;
+	bool less_edu = 0;
+
+public:
+	void labour_work()
+	{
+		less_edu = 1;
+		cout << "Labour work is more as compared to official job oppertunities because literacy rate is low. " << endl;
+	}
+
+	void brain_drain(int gone_abroad, int not_working)
+	{
+		numbr_of_people = gone_abroad + not_working;
+		if (numbr_of_people > 500)
+		{
+			cout << "A lot of people are being Brain Drained, which results in leak of talent from our country. Thus effecting the prosperity and effective educational growth. " << endl;
+		}
+		if (numbr_of_people < 500)
+		{
+			cout << "The number of people who are brain drained is not too high but still rate of unemployment is high. " << endl << "This can fllowing reasons: " << endl;
+			labour_work();
+
+		}
+	}
+
+	void collecting_data(int job_offers, int unemployed)
+	{
+		oppertunities = job_offers;
+		jobless = unemployed; 
+	}
+
+	void no_job(int not_working, int vacancies)
+	{
+		if (not_working > vacancies);
+		{
+			cout << "The number of people who are unemployed is greater than the job vacancies provided. Government should provide more job slots." << endl;
+		}
+		if (vacancies > not_working)
+		{
+			cout << "The vacancies provided are sufficient for the people who are not working anywhere. But still the vacancies need to be increased because of population increase." << endl;
+		}
+		if (oppertunities < jobless)
+		{
+			cout << "People remain jobless because less work oppertunities are available as compared to the number of unemployed people." << endl;
+		}
+		if (less_edu = 1)
+		{
+			cout << "Lack of education also becomes a reason for unemployment, when illetracy rate is high." << endl;
+		}
+	}
+
+		void literacy_rate(int total_people, int rate)
+		{
+			literate_people = total_people * rate;
+			if (literate_people > total_people/2 )
+			{
+				cout << "Literacy Rate is moderate. So education is not really a reason for unemployment. Still the number of literate people shouldbe increased. " << endl;
+			}
+
+			else
+				cout << "Literacy rate is low, which becomes another reason for unemployment. " << endl;
+		}
+	};
+
+	int main()
+	{
+		Unemployment BeRozgari;
+		int gone_abroad, not_working, job_offers, unemployed, vacancies, total_people, rate;
+
+		cout << "What are the number of people who went abroad in a perticular year, in a particular area? " << endl;
+		cin >> gone_abroad;
+
+		cout << "What are the number of people who are not working despite the fact that they are highly qualified? " << endl;
+		cin >> not_working;
+
+		BeRozgari.brain_drain(gone_abroad, not_working);
+
+		cout << "How many job oppertunities are provided in a particular area (aprox) ?" << endl;
+		cin >> job_offers;
+
+		cout << "How many people, on a rough estimation, are unemployed or are searching for jobs in that area ?" << endl;
+		cin >> unemployed;
+
+		BeRozgari.collecting_data(job_offers, unemployed);
+
+		cout << "What are the total number of vacancies, provided to the jobless people in that area ?" << endl;
+		cin >> vacancies;
+
+		BeRozgari.no_job(not_working, vacancies);
+
+		cout << "How many people in total inhabit that particular area ? " << endl;
+		cin >> total_people;
+		
+		cout << "What is the literacy rate of that area ?" << endl;
+		cin >> rate;
+
+		BeRozgari.literacy_rate(total_people, rate);
+
+		return 0;
+	}
